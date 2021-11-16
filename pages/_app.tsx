@@ -1,8 +1,19 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import Head from "next/head";
+import { ThemeProvider } from "styled-components";
+import "../styles/globals.css";
+import { darkTheme } from "../constants";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <Head>
+        <title>Paint.o.mania</title>
+      </Head>
+      <ThemeProvider theme={darkTheme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
